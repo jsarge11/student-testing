@@ -1,10 +1,9 @@
 let express = require('express')
-
+let massive = require('massive')
 let app = express();
 
 app.get('/test', (req, res) => {
-
- res.status(200).send();
+ let { id } = req.query
 })
 
-app.listen(4444, console.log('listening on 4444'))
+app.listen(4000, console.log(`listening on ${4000}`))
