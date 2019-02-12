@@ -5,24 +5,8 @@ import axios from 'axios';
 
 class App extends Component {
   state = {
-    arrOfObjs: [
-      { name: 'Jay', age: 26 },
-      { name: 'Jay', age: 26 },
-      { name: 'Jay', age: 26 },
-      { name: 'Jay', age: 26 },
-    ],
     rotate: false
   }
-
-  makeRequest = () => {
-    axios.get('/test', {
-      params: this.state.arrOfObjs
-    }).then((res) => {
-      console.log(res)
-    })
-  }
-
-  
 
   render() {
     let rotate = this.state.rotate ? "rotate(-40deg)" : "rotate(-45deg)";
