@@ -5,26 +5,16 @@ import axios from 'axios';
 
 class App extends Component {
   state = {
-    arrOfObjs: [
-      {name: 'Jay', age: 26},
-      {name: 'Jay', age: 26},
-      {name: 'Jay', age: 26},
-      {name: 'Jay', age: 26},
-    ]
-  }
 
-  makeRequest = () => {
-      axios.get('/test', {
-        params: this.state.arrOfObjs
-    }).then((res) => {
-      console.log(res)
-    })
+  }
+  handleChange = (e) => {
+    console.log(e.target.files)
   }
   
   render() {
     return (
       <div className="App">
-       <button onClick={() => this.makeRequest()}>Make a Request</button>
+       <input type="file" onChange={this.handleChange}/>
       </div>
     );
   }
