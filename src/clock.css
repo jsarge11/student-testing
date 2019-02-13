@@ -1,0 +1,31 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+.clock {
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
+  border-radius: 50%;
+  position: relative;
+}
+.clock-hands {
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: black;
+  border-radius: 5px;
+  transform-origin: 0%;
+}
+.second-hand {
+  width: 230px;
+}
+.minute-hand {
+  width: 180px;
+  transform: rotate(-45deg)
+}
+.hour-hand {
+  width: 130px;
+  transform: rotate(90deg)
+}
