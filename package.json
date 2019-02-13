@@ -5,7 +5,9 @@
   "proxy": "http://localhost:4444",
   "main": "index.js",
   "dependencies": {
+    "aws-sdk": "^2.401.0",
     "axios": "^0.18.0",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
