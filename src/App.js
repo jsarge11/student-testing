@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
@@ -22,7 +21,6 @@ class App extends Component {
     }).catch( err => {
       console.log(err)
     })
-    
   }
 
   uploadFile = (signedRequest, file, url) => {
@@ -31,7 +29,6 @@ class App extends Component {
         'Content-Type': file.type,
       },
     };
-
     axios
     .put(signedRequest, file, options)
     .then(response => {
@@ -59,7 +56,7 @@ class App extends Component {
     return (
       <div className="App">
        <input type="file" onChange={this.getSignedRequest}/>
-       <img src={this.state.url} />
+       <img src={this.state.url} alt="uploaded" />
       </div>
     );
   }
