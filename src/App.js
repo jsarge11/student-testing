@@ -1,64 +1,70 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
 
 class App extends Component {
-  state = {
-    url: ''
-  }
-  getSignedRequest = (e) => {
-    let file = e.target.files[0];
 
-    axios.get('/sign-s3', {
-      params: {
-        'file-name': file.name,
-        'file-type': file.type
-      }
-    }).then( (response) => {
-      const { signedRequest, url } = response.data 
-      this.uploadFile(signedRequest, file, url)
-
-    }).catch( err => {
-      console.log(err)
-    })
-  }
-
-  uploadFile = (signedRequest, file, url) => {
-    const options = {
-      headers: {
-        'Content-Type': file.type,
-      },
-    };
-    axios
-    .put(signedRequest, file, options)
-    .then(response => {
-      this.setState({ isUploading: false, url });
-      // THEN DO SOMETHING WITH THE URL. SEND TO DB USING POST REQUEST OR SOMETHING
-    })
-    .catch(err => {
-      this.setState({
-        isUploading: false,
-      });
-      if (err.response.status === 403) {
-        alert(
-          `Your request for a signed URL failed with a status 403. Double check the CORS configuration and bucket policy in the README. You also will want to double check your AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY in your .env and ensure that they are the same as the ones that you created in the IAM dashboard. You may need to generate new keys\n${
-            err.stack
-          }`
-        );
-      } else {
-        alert(`ERROR: ${err.status}\n ${err.stack}`);
-      }
-    });
-};
-  
-  
   render() {
     return (
-      <div className="App">
-       <input type="file" onChange={this.getSignedRequest}/>
-       <img src={this.state.url} alt="uploaded" />
+      <div>
+        <div class="sidebar">
+          <p>Some information here</p>
+        </div>
+        <div className="main">
+          <header>
+            <a href="#" id="logo">ImportantCo</a>
+
+            <nav>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+          </header>
+          <section id="hero">
+            <div id="content">
+              <h1>Sensible Solutions</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
+            </div>
+            <img src="images/mountain.jpg" id="mountain" />
+          </section>
+          <section id="info">
+            <div id="content2">
+              <h2>Reinvention</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
+            </div>
+            <img src="images/vector-mountains.svg" id="mountain-vector" />
+          </section>
+          <ul id="features">
+            <li>
+              <i class="fa fa-id-card" aria-hidden="true"></i>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </li>
+            <li>
+              <i class="fa fa-id-card" aria-hidden="true"></i>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </li>
+            <li>
+              <i class="fa fa-id-card" aria-hidden="true"></i>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </li>
+            <li>
+              <i class="fa fa-id-card" aria-hidden="true"></i>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </li>
+            <li>
+              <i class="fa fa-id-card" aria-hidden="true"></i>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </li>
+          </ul>
+        </div>
+        <footer>
+        <p>My footer bar</p>
+        </footer>
+
       </div>
-    );
+    )
   }
 }
 
