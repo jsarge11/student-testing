@@ -5,16 +5,11 @@ class App extends Component {
 
   render() {
     return (
-      <div class="wrapper">
-        <div class="box a">A</div>
-        <div class="box b">B</div>
-        <div class="box c">C</div>
-        <div class="box d">D</div>
-        <div class="box e">E</div>
-        <div class="box f">F</div>
-        <div class="box g">G</div>
-        <div class="box g">H</div>
-        <div class="box g">I</div>
+      <div className="wrapper">
+        <div className="box a">A</div>
+        <div className="box b">B</div>
+        <div className="box c">C</div>
+        <div className="box d">D</div>
       </div>
     )
   }
